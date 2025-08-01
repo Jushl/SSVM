@@ -351,7 +351,14 @@ class Mosaic(Transform):
                 image = self.rep.run(event, H, W)
             elif self.multimodal == 'multimodal':
                 event = np.load(event_path)
-                image = self.fusion.run(image.convert("L"), event.copy())
+                fusion = self.fusion.run(image.copy().convert("L"), event.copy())
+                image_ary = np.array(image)
+                fusion_ary = np.array(fusion)
+                image_ = np.zeros_like(image_ary)
+                image_[:, :, 0] = fusion_ary[:, :, 0]
+                image_[:, :, 1] = image_ary[:, :, 1]
+                image_[:, :, 2] = image_ary[:, :, 2]
+                image = Image.fromarray(image_)
             else:
                 assert self.multimodal in ['image', 'event', 'multimodal']
 
