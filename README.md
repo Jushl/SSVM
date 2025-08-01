@@ -1,6 +1,10 @@
 # SSVM
 Streaming State Vision Model
 
+![image](fig/benchmark_comparisons.png)
+
+Comparison with other state-of-the-art methods
+
 ## Table of Contents
 -  EMRS Dataset
 -  Conda Installation
