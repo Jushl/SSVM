@@ -78,7 +78,7 @@ def get_args_parser():
     parser.add_argument('--batch_size_train', default=64, type=int,  help='每次训练读取数据个数')
     parser.add_argument('--batch_size_val', default=1, type=int,  help='每次验证读取数据个数')
     parser.add_argument('--epochs', default=72, type=int, help='训练代数')
-    parser.add_argument('--stop_mosaic', default=60, type=int, help='停止马赛克增强时的代数')
+    parser.add_argument('--stop_mosaic', default=60, type=int, help='SDA停止代数')
     parser.add_argument('--start_epoch', default=0, type=int, help='开始训练时的代数')
 
     parser.add_argument('--test_only', default=False, help='是否只验证，默认不验证，直接训练')
@@ -146,6 +146,3 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser('SMVM script', parents=[get_args_parser()])
     args = parser.parse_args()
     main(args)
-
-# python main.py --model_cfg "cfg/smvm-s.yaml" --dataset_path "D:/publicData/EMRS" --multimodal "image"
-# python main.py --model_cfg "cfg/smvm-s.yaml" --dataset_path "D:/publicData/EMRS" --multimodal "image"  --test_only True --resume ""
