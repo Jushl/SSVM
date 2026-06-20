@@ -210,5 +210,3 @@ class SMVMDetectionModel(BaseModel):
 
     def init_criterion(self):
         return DetectionLoss(self)
-
-
